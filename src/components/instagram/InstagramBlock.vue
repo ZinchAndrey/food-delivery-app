@@ -1,12 +1,36 @@
 <template>
   <div class="insta">
     <!-- <img src="../../assets/instagram/Rectangle12.jpg" alt="" class="insta__img" /> -->
-    <img src="../../assets/instagram/Rectangle13.jpg" alt="" class="insta__img" />
-    <img src="../../assets/instagram/Rectangle10.jpg" alt="" class="insta__img" />
-    <img src="../../assets/instagram/Rectangle11.jpg" alt="" class="insta__img" />
-    <img src="../../assets/instagram/Rectangle13.jpg" alt="" class="insta__img" />
-    <img src="../../assets/instagram/Rectangle9.jpg" alt="" class="insta__img" />
-    <img src="../../assets/instagram/Rectangle13.jpg" alt="" class="insta__img" />
+    <img
+      src="../../assets/instagram/Rectangle13.jpg"
+      alt=""
+      class="insta__img"
+    />
+    <img
+      src="../../assets/instagram/Rectangle10.jpg"
+      alt=""
+      class="insta__img"
+    />
+    <img
+      src="../../assets/instagram/Rectangle11.jpg"
+      alt=""
+      class="insta__img"
+    />
+    <img
+      src="../../assets/instagram/Rectangle13.jpg"
+      alt=""
+      class="insta__img"
+    />
+    <img
+      src="../../assets/instagram/Rectangle9.jpg"
+      alt=""
+      class="insta__img"
+    />
+    <img
+      src="../../assets/instagram/Rectangle13.jpg"
+      alt=""
+      class="insta__img"
+    />
     <!-- <img src="../../assets/instagram/Rectangle14.jpg" alt="" class="insta__img" /> -->
     <a href="#" class="insta__link" target="_blank">
       Instagram: <b>@classic_kovel</b>
@@ -50,9 +74,19 @@
   transition: box-shadow ease-in 0.3s;
 
   position: absolute;
-  /* top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
+}
+
+.insta__link::after {
+  content: "";
+  display: block;
+  width: 440px;
+  height: 140px;
+  background: transparent;
+  opacity: 0.1;
+  border: 2px solid #ffffff;
+  border-radius: 15px;
+  position: absolute;
+  margin: auto;
 }
 
 .insta__link:hover {

@@ -1,10 +1,13 @@
 <template>
+<!-- <base-container> -->
   <section class="cart">
     <a href="#" class="cart__link">
       <span class="cart__counter">{{ amountOfProducts }}</span>
       <div class="cart__tooltip">=&nbsp;{{ cartSum }}&nbsp;₽</div>
     </a>
   </section>
+<!-- </base-container> -->
+
 </template>
 
 <script>
@@ -40,8 +43,11 @@ export default {
 .cart {
   position: sticky;
   top: 20px;
-  right: 20px;
+  right: calc(50% - 740px);
   z-index: 2;
+
+  width: fit-content;
+  margin: 0 0 0 auto;
 }
 
 .cart__link {

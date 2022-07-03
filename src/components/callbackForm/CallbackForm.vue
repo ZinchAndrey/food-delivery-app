@@ -2,9 +2,10 @@
   <section class="form-container">
     <h2 class="caption">Fill out the form and we will call you</h2>
     <form action="" class="form">
-      <input class="form__field" type="text" placeholder="Your name" />
+      <input class="form__field" name="name" type="text" placeholder="Your name" />
       <input
         class="form__field"
+        name="phone"
         type="text"
         inputmode="tel"
         placeholder="Phone number"

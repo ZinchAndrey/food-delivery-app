@@ -4,6 +4,7 @@
   <products-block></products-block>
   <instagram-block></instagram-block>
   <callback-form></callback-form>
+  <the-footer></the-footer>
 </template>
 
 <script>
@@ -12,6 +13,7 @@ import PromoBlock from "./components/promo/PromoBlock.vue";
 import ProductsBlock from "./components/products/ProductsBlock.vue";
 import InstagramBlock from "./components/instagram/InstagramBlock.vue";
 import CallbackForm from "./components/callbackForm/CallbackForm.vue";
+import TheFooter from "./components/layout/footer/TheFooter.vue";
 
 export default {
   name: "App",
@@ -21,6 +23,7 @@ export default {
     ProductsBlock,
     InstagramBlock,
     CallbackForm,
+    TheFooter,
   },
 };
 </script>
