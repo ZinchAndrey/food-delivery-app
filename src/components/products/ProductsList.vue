@@ -1,13 +1,17 @@
 <template>
-  <ul class="products" v-if="!!filteredProducts.length">
-    <li
-      class="products__item"
-      v-for="product in filteredProducts"
-      :key="product.key"
-    >
-      <product-item :product="product"></product-item>
-    </li>
-  </ul>
+  <div v-if="!!filteredProducts.length">
+    <ul class="products">
+      <li
+        class="products__item"
+        v-for="product in filteredProducts"
+        :key="product.key"
+      >
+        <product-item :product="product"></product-item>
+      </li>
+    </ul>
+    <product-more-button></product-more-button>
+  </div>
+
   <div class="error" v-else>
     <h2 class="error__caption">Увы... <br> Таких продуктов нет в наличии</h2>
     <p class="error__text">Попробуйте выбрать другой фильтр</p>
@@ -16,11 +20,13 @@
 
 <script>
 import products from "../../store/products.js";
-import ProductItem from "./ProducеItem.vue";
+import ProductItem from "./ProductItem.vue";
+import ProductMoreButton from "./ProductMoreButton.vue";
 
 export default {
   components: {
     ProductItem,
+    ProductMoreButton
   },
   props: ["currentFilter"],
   data() {

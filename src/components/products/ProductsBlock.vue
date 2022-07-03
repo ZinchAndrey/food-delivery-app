@@ -1,8 +1,8 @@
 <template>
   <user-cart></user-cart>
   <base-container>
-    <section class="menu">
-      <h2 class="menu__caption">Popular dishes</h2>
+    <section class="products">
+      <h2 class="products__caption">Popular dishes</h2>
       <products-filter @change-filter="changeFilter"></products-filter>
       <products-list :current-filter="currentFilter" @add-to-cart="addToCart"></products-list>
     </section>
@@ -37,7 +37,7 @@ export default {
 </script>
 
 <style scoped>
-.menu__caption {
+.products__caption {
   font-size: 48px;
   line-height: 59px;
   margin: 0 auto 50px;

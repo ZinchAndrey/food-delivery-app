@@ -2,12 +2,16 @@
   <the-header></the-header>
   <promo-block></promo-block>
   <products-block></products-block>
+  <instagram-block></instagram-block>
+  <callback-form></callback-form>
 </template>
 
 <script>
 import TheHeader from "./components/layout/header/TheHeader.vue";
 import PromoBlock from "./components/promo/PromoBlock.vue";
 import ProductsBlock from "./components/products/ProductsBlock.vue";
+import InstagramBlock from "./components/instagram/InstagramBlock.vue";
+import CallbackForm from "./components/callbackForm/CallbackForm.vue";
 
 export default {
   name: "App",
@@ -15,6 +19,8 @@ export default {
     TheHeader,
     PromoBlock,
     ProductsBlock,
+    InstagramBlock,
+    CallbackForm,
   },
 };
 </script>
