@@ -104,6 +104,7 @@ label:hover {
 
 input:checked + label {
   background: #59AAF1;
+  color: #ffffff;
 }
 
 .filter-option {

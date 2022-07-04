@@ -1,6 +1,5 @@
 <template>
   <div class="insta">
-    <!-- <img src="../../assets/instagram/Rectangle12.jpg" alt="" class="insta__img" /> -->
     <img
       src="../../assets/instagram/Rectangle13.jpg"
       alt=""
@@ -87,10 +86,16 @@
   border-radius: 15px;
   position: absolute;
   margin: auto;
+
+  transition: all ease-in 0.1s;
 }
 
 .insta__link:hover {
   box-shadow: 0px 70px 90px rgba(253, 55, 36, 0.3),
     0px 35px 50px rgba(253, 55, 36, 0.2), 0px 20px 25px rgba(253, 55, 36, 0.3);
+}
+
+.insta__link:hover::after {
+  opacity: 1;
 }
 </style>

@@ -1,20 +1,18 @@
 <template>
-<!-- <base-container> -->
   <section class="cart">
     <a href="#" class="cart__link">
-      <span class="cart__counter">{{ amountOfProducts }}</span>
+      <span :class="cartCounterClasses">{{ amountOfProducts }}</span>
       <div class="cart__tooltip">=&nbsp;{{ cartSum }}&nbsp;₽</div>
     </a>
   </section>
-<!-- </base-container> -->
-
 </template>
 
 <script>
 export default {
   data() {
     return {
-      userCart: [],
+      userCart: this.$store.getters.userCart,
+      newProductWasAdded: false,
     };
   },
   computed: {
@@ -22,18 +20,26 @@ export default {
       return this.userCart.length;
     },
     cartSum() {
-      const sum = this.userCart.reduce((sum, current) => sum + current, 0);
-      return sum;
+      const sum = this.userCart.reduce((sum, currentProduct) => {
+        return sum + parseInt(currentProduct.price);
+      }, 0);
+      return sum.toLocaleString();
     },
-    methods: {
-      addToCart(product) {
-        this.userCart.push(product);
-      },
-      provide() {
-        return {
-          addProductToCart: this.addToCart,
-        }
-      },
+    cartCounterClasses() {
+      return {
+        'cart__counter': true,
+        'cart__counter--active': this.newProductWasAdded,
+      };
+    },
+  },
+  watch: {
+    amountOfProducts() {
+      const ANIMATION_DELAY = 1000;
+      this.newProductWasAdded = true;
+
+      setTimeout(() => {
+      this.newProductWasAdded = false;
+      }, ANIMATION_DELAY)
     },
   },
 };
@@ -86,6 +92,13 @@ export default {
   bottom: 0;
   right: 0;
   transform: translate(40%, 40%);
+
+  transition: all 0.1s ease-in;
+}
+
+.cart__counter--active {
+  background-color: rgb(39, 208, 66);
+  transform: translate(40%, 40%) scale(1.15);
 }
 
 .cart__tooltip {

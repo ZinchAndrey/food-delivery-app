@@ -20,13 +20,14 @@ const CART_CLICK_ANIMATION_TIMEOUT = 1000;
 
 export default {
   props: ['product'],
-  emits: ['add-to-cart'],
+  // emits: ['add-to-cart'],
   // inject: ['addProductToCart'],
   methods: {
     addToCart(evt) {
       // const productId = evt.target.dataset.id;
-      this.$emit('add-to-cart', this.product);
-      this.addProductToCart(this.product);
+      // this.$emit('add-to-cart', this.product);
+      this.$store.commit('addProductToCart', this.product);
+      // this.addProductToCart(this.product);
 
       evt.target.classList.add('product__add-to-cart--active');
       setTimeout(() => {
@@ -69,6 +70,7 @@ export default {
   font-size: 16px;
   line-height: 140%;
   margin: 0;
+  text-align: left;
 }
 .prosuct__size {
   font-size: 12px;

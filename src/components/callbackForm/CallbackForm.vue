@@ -102,9 +102,14 @@
   right: 53px;
   top: 50%;
   transform: translateY(-70%);
+
+  transition: all ease-in 0.1s;
 }
 
 .form__submit:hover {
   box-shadow: 0px 4px 16px rgba(205, 169, 41, 0.46);
+}
+.form__submit:hover::after {
+  right: 48px;
 }
 </style>

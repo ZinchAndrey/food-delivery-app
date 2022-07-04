@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import products from "../../store/products.js";
 import ProductItem from "./ProductItem.vue";
 import ProductMoreButton from "./ProductMoreButton.vue";
 
@@ -31,7 +30,7 @@ export default {
   props: ["currentFilter"],
   data() {
     return {
-      products: products,
+      products: this.$store.getters.products,
     };
   },
   computed: {
