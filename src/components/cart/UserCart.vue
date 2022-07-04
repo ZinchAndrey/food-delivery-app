@@ -97,7 +97,7 @@ export default {
 }
 
 .cart__counter--active {
-  background-color: rgb(39, 208, 66);
+  background-color: #21a736;
   transform: translate(40%, 40%) scale(1.15);
 }
 

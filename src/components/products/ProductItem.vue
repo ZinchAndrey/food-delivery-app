@@ -1,7 +1,6 @@
 <template>
   <div class="product">
-    <!-- <img class="product__image" src="../../assets/products/pizza/image26-1.jpg" :alt="product.title"/> -->
-    <img class="product__image" :src="require(`@/${product.img}`)" :alt="product.title"/>
+    <img class="product__image" :src="require(`@/${product.img}`)" :alt="product.title + '.'"/>
     <div class="product__info">
       <h3 class="product__title">{{ product.title }}</h3>
       <span class="prosuct__size">{{ product.size}}</span>
@@ -20,14 +19,9 @@ const CART_CLICK_ANIMATION_TIMEOUT = 1000;
 
 export default {
   props: ['product'],
-  // emits: ['add-to-cart'],
-  // inject: ['addProductToCart'],
   methods: {
     addToCart(evt) {
-      // const productId = evt.target.dataset.id;
-      // this.$emit('add-to-cart', this.product);
       this.$store.commit('addProductToCart', this.product);
-      // this.addProductToCart(this.product);
 
       evt.target.classList.add('product__add-to-cart--active');
       setTimeout(() => {
@@ -40,13 +34,12 @@ export default {
 
 <style scoped>
 .product {
+  display: flex;
+  flex-direction: column;
   width: 260px;
-  min-height: 415px;
-  padding: 36px 15px 8px 25px;
+  min-height: 425px;
+  padding: 36px 15px 45px 25px;
   position: relative;
-
-  /* border: 4px solid #eceef7;
-  border-radius: 10px; */
 
   background: url('../../assets/products/pizza/product-bg.svg') no-repeat top center / 100% 100%;
 
@@ -80,7 +73,7 @@ export default {
   font-size: 12px;
   line-height: 140%;
   text-align: left;
-  margin: 0 auto 19px;
+  margin: 0 0 19px;
 }
 .product__price {
   font-weight: 300;
@@ -88,7 +81,7 @@ export default {
   line-height: 140%;
   text-align: center;
   color: #121146;
-  margin: 0 auto 18px;
+  margin: auto auto 0;
 }
 .product__plate {
   font-weight: 600;
@@ -133,9 +126,9 @@ export default {
   border-color: #F58656;
 }
 .product__add-to-cart--active {
-  background: rgb(39 208 66) url("../../assets/products/pizza/cart-icon-hover.svg") no-repeat top 6px center;
-  box-shadow: 0px 4px 8px rgba(39, 208, 66, 0.26);
-  border-color: rgb(39 208 66);
+  background: #21a736 url("../../assets/products/pizza/cart-icon-hover.svg") no-repeat top 6px center;
+  box-shadow: 0px 4px 8px #21a736;
+  border-color: #21a736;
   transform: translateX(-50%) scale(1.1);
 }
 </style>

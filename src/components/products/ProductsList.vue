@@ -50,8 +50,8 @@ export default {
   margin: 0;
 
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(255px, 1fr) );
+  gap: 10px 40px;
 }
 
 .error {
