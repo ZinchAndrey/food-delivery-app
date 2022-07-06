@@ -1,10 +1,21 @@
 <template>
   <section class="form-container">
     <h2 class="caption">Fill out the form and we will call you</h2>
-    <form action="" class="form">
-      <input class="form__field" name="name" type="text" placeholder="Your name" />
+    <form
+      class="form"
+      :class="{ error: isFormInvalid }"
+      @submit.prevent="submitForm"
+    >
       <input
         class="form__field"
+        v-model="name"
+        name="name"
+        type="text"
+        placeholder="Your name"
+      />
+      <input
+        class="form__field"
+        v-model="phone"
         name="phone"
         type="text"
         inputmode="tel"
@@ -15,19 +26,54 @@
   </section>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      name: "",
+      phone: "",
+      isFormValid: "pending",
+    };
+  },
+  computed: {
+    isFormInvalid() {
+      return this.isFormValid === "invalid";
+    },
+  },
+  methods: {
+    submitForm() {
+      if (!!this.name && !!this.phone) {
+        this.isFormValid = "valid";
+      } else {
+        this.isFormValid = "invalid";
+        return;
+      }
+
+      const userData = {
+        name: this.name,
+        phone: this.phone,
+      }
+
+      console.log(userData);
+      this.name = this.phone = '';
+    },
+  },
+};
+</script>
+
 <style scoped>
 .form-container {
   padding: 82px 20px 260px;
-  background: #F0F5FB;
+  background: #f0f5fb;
   position: relative;
 }
 
 .form-container::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 684px;
   height: 342px;
-  background: url('../../assets/callback/car.png') no-repeat center;
+  background: url("../../assets/callback/car.png") no-repeat center;
   left: 50%;
   bottom: -70px;
   transform: translateX(-50%);
@@ -48,6 +94,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.form.error .form__field {
+  border-color: #f23f0e;
 }
 .form__field {
   font-size: 14px;

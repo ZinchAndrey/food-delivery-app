@@ -1,5 +1,4 @@
 <template>
-  <!-- ВОЗМОЖНО, ЗАМЕНИТЬ ССЫЛКИ НА VUE роутер  -->
   <header>
     <base-container>
       <nav class="navigation">

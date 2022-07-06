@@ -96,7 +96,7 @@ export default {
           img: 'assets/products/sushi/california.webp'
         },
         {
-          id: '012',
+          id: '011',
           category: 'sushi',
           title: 'Суши с авокадо',
           price: '110',
@@ -143,7 +143,7 @@ export default {
           img: 'assets/products/drinks/smoothie-01.webp'
         },
         {
-          id: '015',
+          id: '016',
           category: 'drinks',
           title: 'Айс ти пуэр-ягоды',
           price: '515',
