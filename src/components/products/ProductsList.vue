@@ -1,7 +1,7 @@
 <template>
   <div v-if="!!filteredProducts.length">
-    <!-- <ul class="products"> -->
-    <transition-group class="products" name="fade" tag="ul" mode="out-in">
+    <ul class="products">
+      <!-- <transition-group class="products" name="fade" tag="ul" mode="out-in"> -->
       <li
         class="products__item"
         v-for="product in filteredProducts"
@@ -9,8 +9,8 @@
       >
         <product-item :product="product"></product-item>
       </li>
-    </transition-group>
-    <!-- </ul> -->
+      <!-- </transition-group> -->
+    </ul>
     <product-more-button></product-more-button>
   </div>
   <div class="error" v-else>
@@ -75,7 +75,7 @@ export default {
 
 /* ANIMATION */
 
-.fade-enter-to,
+/* .fade-enter-to,
 .fade-leave-from {
   opacity: 1;
   transform: translateX(0);
@@ -85,7 +85,6 @@ export default {
 .fade-enter-from {
   opacity: 0;
   transform: translateX(250px);
-  /* position: absolute; */
 }
 
 .fade-leave-to {
@@ -94,11 +93,10 @@ export default {
 }
 
 .fade-leave-active {
-  /* position: absolute; */
 }
 
 .fade-enter-active,
 .fade-leave-active {
   transition: all 2s ease-in;
-}
+} */
 </style>
