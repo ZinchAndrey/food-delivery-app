@@ -1,30 +1,31 @@
 <template>
-  <div v-if="!!filteredProducts.length">
-    <ul class="products">
-      <!-- <transition-group class="products" name="fade" tag="ul" mode="out-in"> -->
-      <li
-        class="products__item"
-        v-for="product in filteredProducts"
-        :key="product.id"
-      >
-        <product-item :product="product"></product-item>
-      </li>
-      <!-- </transition-group> -->
-    </ul>
-    <product-more-button></product-more-button>
-  </div>
-  <div class="error" v-else>
-    <h2 class="error__caption">
-      Увы... <br />
-      Таких продуктов нет в наличии
-    </h2>
-    <p class="error__text">Попробуйте выбрать другой фильтр</p>
-  </div>
+  <transition mode="out-in" name="slide-no-delay">
+    <div v-if="!!filteredProducts.length">
+      <transition-group class="products" name="slide" tag="ul" mode="out-in">
+        <li
+          class="products__item"
+          v-for="product in filteredProducts"
+          :key="product.id"
+        >
+          <product-item :product="product"></product-item>
+        </li>
+      </transition-group>
+      <product-more-button></product-more-button>
+    </div>
+    <div class="error" v-else>
+      <h2 class="error__caption">
+        Увы... <br />
+        Таких продуктов нет в наличии
+      </h2>
+      <p class="error__text">Попробуйте выбрать другой фильтр</p>
+    </div>
+  </transition>
 </template>
 
 <script>
 import ProductItem from "./ProductItem.vue";
 import ProductMoreButton from "./ProductMoreButton.vue";
+import products from "../../store/products.js";
 
 export default {
   components: {
@@ -34,7 +35,7 @@ export default {
   props: ["currentFilter"],
   data() {
     return {
-      products: this.$store.getters.products,
+      products: products,
     };
   },
   computed: {
@@ -75,28 +76,69 @@ export default {
 
 /* ANIMATION */
 
-/* .fade-enter-to,
-.fade-leave-from {
+/* SLIDE */
+.slide-enter-to,
+.slide-leave-from {
   opacity: 1;
   transform: translateX(0);
   position: relative;
 }
 
-.fade-enter-from {
+.slide-enter-from {
   opacity: 0;
-  transform: translateX(250px);
+  transform: translateX(1500px);
 }
 
-.fade-leave-to {
+.slide-leave-to {
   opacity: 1;
-  transform: translateX(-250px);
+  transform: translateX(-1500px);
 }
 
-.fade-leave-active {
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.3s ease-in;
+}
+
+.slide-enter-active {
+  transition-delay: 0.3s;
+}
+
+/* SLIDE-NO-DELAY */
+.slide-no-delay-enter-to,
+.slide-no-delay-leave-from {
+  opacity: 1;
+  transform: translateX(0);
+  position: relative;
+}
+
+.slide-no-delay-enter-from {
+  opacity: 0;
+  transform: translateX(1500px);
+}
+
+.slide-no-delay-leave-to {
+  opacity: 1;
+  transform: translateX(-1500px);
+}
+
+.slide-no-delay-enter-active,
+.slide-no-delay-leave-active {
+  transition: all 0.3s ease-in;
+}
+
+/* FADE */
+/* .fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: all 2s ease-in;
+  transition: opacity 0.3s ease-in;
 } */
 </style>

@@ -25,6 +25,22 @@ export default {
     CallbackForm,
     TheFooter,
   },
+  data() {
+    return {
+      userCart: [],
+    };
+  },
+  methods: {
+    addProductToCart(product) {
+      this.userCart.push(product);
+    },
+  },
+  provide() {
+    return {
+      addProductToCart: this.addProductToCart,
+      userCart: this.userCart,
+    };
+  },
 };
 </script>
 

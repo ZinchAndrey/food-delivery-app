@@ -19,9 +19,10 @@ const CART_CLICK_ANIMATION_TIMEOUT = 1000;
 
 export default {
   props: ['product'],
+  inject: ['addProductToCart'],
   methods: {
     addToCart(evt) {
-      this.$store.commit('addProductToCart', this.product);
+      this.addProductToCart(this.product);
 
       evt.target.classList.add('product__add-to-cart--active');
       setTimeout(() => {

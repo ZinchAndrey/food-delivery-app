@@ -9,9 +9,9 @@
 
 <script>
 export default {
+  inject: ['userCart'],
   data() {
     return {
-      userCart: this.$store.getters.userCart,
       newProductWasAdded: false,
     };
   },

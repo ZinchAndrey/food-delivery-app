@@ -4,7 +4,7 @@
     <section class="products">
       <h2 class="products__caption">Popular dishes</h2>
       <products-filter @change-filter="changeFilter"></products-filter>
-      <products-list :current-filter="currentFilter" @add-to-cart="addToCart"></products-list>
+      <products-list :current-filter="currentFilter"></products-list>
     </section>
   </base-container>
 </template>
@@ -29,9 +29,6 @@ export default {
     changeFilter(newFilter) {
       this.currentFilter = newFilter;
     },
-    addToCart(product) {
-      console.log(product);
-    }
   },
 };
 </script>
